@@ -1,7 +1,7 @@
 # Workshop_2016
 Repository for models, descriptions, and code to be used for the 2016 Workshop.
 
-Ideally we would like the 2016 workshop to demonstrate a pipelining of our tools using a single multi-scale. However, since many of our tools operator on different scales, it may be necessary to simplify them or otherwise address the multi-scale issue.
+Ideally we would like the 2016 workshop to demonstrate a pipelining of our tools using a single multi-scale model. However, since many of our tools operator on different scales, it may be necessary to simplify them or otherwise address the multi-scale issue.
 
 This repository has been created as a place to work out an appropriate model for the workshop consistent with our February 25th decision.
 
