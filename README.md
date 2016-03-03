@@ -7,7 +7,7 @@ This repository has been created as a place to work out an appropriate model for
 
 At this point, the candidate tools for such a joint model are:
 
-* CellBlender
-* MCell
-* BioNetGen
-* Cell Organizer
+* **CellBlender**
+* **MCell++
+* **BioNetGen**
+* **Cell Organizer**
