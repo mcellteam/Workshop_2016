@@ -24,4 +24,4 @@ If we start with Cell Organizer, we might try to build the "Organelle" model geo
 
 The output would ideally be the model mesh that we want to simulate in CellBlender/MCell:
 
-![Organelle Wire Frame](organelle_sire.gif?raw=true "Organelle Wire Frame")
+![Organelle Wire Frame](organelle_wire.png?raw=true "Organelle Wire Frame")
