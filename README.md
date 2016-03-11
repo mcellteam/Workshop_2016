@@ -18,7 +18,7 @@ At this time we are working toward the "Organelle" model that looks like this:
 
 ![Organelle Model](organelle_mcell.gif?raw=true "Organelle Model")
 
-If we start with Cell Organizer, we might try to build the "Organelle" model geometry using this series of slices:
+If we start with Cell Organizer, we might try to build the "Organelle" model geometry using a series of slices something like this:
 
 ![Organelle Slices](organelle_fill.gif?raw=true "Organelle Slices")
 
