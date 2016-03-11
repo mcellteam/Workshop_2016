@@ -13,3 +13,7 @@ At this point, the candidate tools for such a joint model are:
 * **Cell Organizer**
 
 Please feel free to add/delete tools that might participate in this portion of the workshop.
+
+If we start with Cell Organizer, we might see if it can build the "Organelle" demo using this series of slices:
+
+![Organelle Slices](organelle_fill.gif?raw=true "Organelle Slices")
