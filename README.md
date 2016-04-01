@@ -25,3 +25,7 @@ If we start with Cell Organizer, we might try to build the "Organelle" model geo
 The output from CellOrganizer would ideally be a model mesh that the students can simulate in CellBlender/MCell:
 
 ![Organelle Wire Frame](organelle_wire.png?raw=true "Organelle Wire Frame")
+
+As of March 31st, we have a preliminary model from CellOrganizer with an organelle added by CellBlender:
+
+![Cell1 in CellBlender/MCell](Cell1_Test1.gif?raw=true "Cell1 in CellBlender/MCell")
