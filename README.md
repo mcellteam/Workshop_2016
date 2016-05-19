@@ -9,8 +9,8 @@ At this point, the candidate tools for such a joint model are:
 
 * **[CellBlender](cellblender/README.md)**
 * **[CellOrganizer](cellorganizer/README.md)**
-* **[MCell](mcell/README.md)**
 * **[BioNetGen](bionetgen/README.md)**
+* **[MCell](mcell/README.md)**
 
 Please feel free to add/delete tools that might participate in this portion of the workshop.
 
