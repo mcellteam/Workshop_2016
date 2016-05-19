@@ -3,5 +3,5 @@
 
 The BioNetGen portion of the workshop will cover ...
 
-* **[Basic Example](bngBasicExample/README.md)**
+* **[Basic Example](bngBasicExample)**
 
