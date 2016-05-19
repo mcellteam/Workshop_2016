@@ -35,7 +35,7 @@ In this section of the tutorial we are going to use CellOrganizer to
 CellOrganizer has a helper function that we used to generate a collection of images.
 We are going to use these simple geometries to train a model.
 
-![Cell1 in CellBlender/MCell](cellorganizer/simple_geometries_dataset_small.png "Simple geometries dataset snapshot")
+![Cell1 in CellBlender/MCell](cellorganizer/simple_geometries_dataset.png "Simple geometries dataset snapshot")
 
 ### Training a model with simple geometries
 
