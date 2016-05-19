@@ -237,3 +237,18 @@ options.output.blender.downsample = [1 1 1];
 ```
 
 which tells CellOrganizer to save the synthetic image as indexed polygon meshes that can be imported into Blender for use with CellBlender.
+
+The files will be save in the `examples` folder
+
+```
+>> ls examples
+cell1
+
+>> ls examples/cell1
+cell.mtl	cell.tif	nucleus.obj
+cell.obj	nucleus.mtl	nucleus.tif
+```
+
+The synthetic image will look like this
+
+![Synthetic image projection](cellorganizer/synthetic_image.png "Synthetic image projection")
