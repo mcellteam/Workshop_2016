@@ -28,15 +28,14 @@ The CellOrganizer project provides tools for
 
 In this section of the tutorial we are going to use CellOrganizer to
 
-* train a framework model from simple 3D shapes
-* synthesize a framwork instance from the model and export it as a Wavefront .obj file
+* train a framework (cell and nuclear membrane) model from simple 3D shapes
+* synthesize an instance from the trained model and export as a Wavefront .obj file
 
 ### Generating simple geometries
-CellOrganizer has a helper function that we can use to generate a collection of images.
-Then we are going to use these simple geometries to train a model.
+First we use a CellOrganizer helper function to generate a collection of toy images.
+These simply geometries can then be used to train a generative model.
 
-The first step is to seed the random number generator to guarantee that we will all generate the same images.
-
+The first step is to seed the random number generator to obtain reproducibly-random instances.
 ```
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SEED EXAMPLE
@@ -46,7 +45,7 @@ RandStream.setDefaultStream( state );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ```
 
-And then we are going to generate the images. The helper method `generate_ellipsoid` returns a 3D array with an ellipsoid centered in the middl
+The helper method `generate_ellipsoid` returns a 3D array with centered ellipsoid.
 
 ```
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -81,7 +80,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ```
 
-The collection of images will look something like this
+The resulting image collection will look something like this (this should be edited to remove some whitespace. Also, the subimages should be larger; it's hard to see the differences between each subimage.)
 
 ![Simple geometries dataset snapshot](cellorganizer/simple_geometries_dataset.png "Simple geometries dataset snapshot")
 
@@ -89,15 +88,16 @@ For convenience we will provide you with the image collection.
 
 ### Training a model with simple geometries
 
-`img2slml` is the main function used for training. It takes five inputs
+Now, we use `img2slml`, the main model training function. `img2slml` takes five inputs:
 
-* a flag describing the dimensionality of the data
-* images for the nuclear channel
-* images for the cell shape channel
-* images for the protein channel (optional)
+* a flag for the dimensionality of the data (2D/3D)
+* nuclear images
+* cell images
+* (optional) protein images
 * options used to change default model settings.
 
 We can use the latter method to train a nuclear and cell membrane model from those geometries. The next block shows how to train the model
+(what is the latter method? what kind of model are we training?)
 
 ```
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -138,14 +138,14 @@ img2slml( '3D', dna, cell, [], options );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ```
 
-At the end you will end up with a file
+`img2slml` automatically saves the trained model's parameter structure in a reasonable default location. A save-path can be passed in the options struct.
 
 ```
 >> ls model.mat
 model.mat
 ```
 
-that contains a nuclear and cell membrane models
+model.mat contains nuclear and cell membrane models
 ```
 >> load model
 >> model.nuclearShapeModel
@@ -174,15 +174,16 @@ ans =
               id: ''
 ```
 
-Now we can use this model to generate examples.
+The trained model can then be used to generate synthetic instances.
 
 ### Image synthesis using a model trained on simple geometries
 
 `slml2img` is the main function for image synthesis. This function takes two inputs
-* a cell array of paths to the models from which we want to synthesize
-* options used to change default synthesis settings.
+* a cell array containing paths to the models from which we want to synthesize
+* options used to change default synthesis settings
 
-We can use the latter method to sample from the distributions and a synthesize nuclear and cell membrane instance. The next block shows how to synthesize the image
+We can use the latter method to sample from the distributions and a synthesize nuclear and cell membrane instance. Next, we synthesize an image:
+(not sure what the latter method is. what are 'the distributions'?)
 
 ```
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -228,7 +229,7 @@ slml2img( {model_file_path}, options );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ```
 
-The most important step in the previous block is setting these two parameters
+Note the flags for generating .obj files:
 
 ```
 %generate Wavefront obj. files
@@ -236,9 +237,9 @@ options.output.blenderfile = true;
 options.output.blender.downsample = [1 1 1];
 ```
 
-which tells CellOrganizer to save the synthetic image as indexed polygon meshes that can be imported into Blender for use with CellBlender.
+which tell CellOrganizer to save the synthetic image as indexed polygon meshes that can be imported into Blender for use with CellBlender.
 
-The files will be save in the `examples` folder
+The files will be saved in the default `examples` folder
 
 ```
 >> ls examples
@@ -249,6 +250,6 @@ cell.mtl	cell.tif	nucleus.obj
 cell.obj	nucleus.mtl	nucleus.tif
 ```
 
-The synthetic image will look like this
+The synthetic image will look like:
 
 ![Synthetic image projection](cellorganizer/synthetic_image.png "Synthetic image projection")
