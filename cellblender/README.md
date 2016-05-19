@@ -7,5 +7,7 @@ This is the basic "Organelle" model that we have used in other tutorials. This p
 was completely generated within CellBlender, but portions (geometry, reactions, etc) might be imported
 from other tools.
 
-![Cell1 in CellBlender/MCell](organelle_mcell.gif?raw=true "Cell1 in CellBlender/MCell")
+![Organelle Model in CellBlender/MCell](organelle_mcell.gif?raw=true "Organelle Model in CellBlender/MCell")
+
+![Cell1 in CellBlender/MCell](Cell1_Test1.gif?raw=true "Cell1 in CellBlender/MCell")
 
