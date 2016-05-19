@@ -32,10 +32,60 @@ In this section of the tutorial we are going to use CellOrganizer to
 * synthesize a framwork instance from the model and export it as a Wavefront .obj file
 
 ### Generating simple geometries
-CellOrganizer has a helper function that we used to generate a collection of images.
-We are going to use these simple geometries to train a model.
+CellOrganizer has a helper function that we can use to generate a collection of images.
+Then we are going to use these simple geometries to train a model.
 
-![Cell1 in CellBlender/MCell](cellorganizer/simple_geometries_dataset.png "Simple geometries dataset snapshot")
+The first step is to seed the random number generator to guarantee that we will all generate the same images.
+
+```
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SEED EXAMPLE
+seed = 3;
+Stream.create( 'mt19937ar', 'seed', seed );
+RandStream.setDefaultStream( state );
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+```
+
+And then we are going to generate the images. The helper method `generate_ellipsoid` returns a 3D array with an ellipsoid centered in the middl
+
+```
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GENERATE SIMPLE GEOMETRIES
+if ~exist( './synthetic_images' )
+    mkdir( './synthetic_images' );
+end
+
+for i=1:1:25
+    options.image_size = 256;
+
+    a = randi([1/4*options.image_size 1/2*options.image_size]);
+    b = randi([1/4*options.image_size 1/2*options.image_size]);
+    c = randi([1/4*options.image_size 1/2*options.image_size]);
+    filename = ['./synthetic_images/synthetic' num2str(sprintf('%04d',i)) '_0.tif'];
+    if ~exist( filename )
+        disp(['Making image ' filename]);
+        img = generate_ellipsoid(a,b,c,options);
+        img2tif( img, filename, 'lzw' );
+    end
+
+    a = randi([1/2*options.image_size 3/4*options.image_size]);
+    b = randi([1/2*options.image_size 3/4*options.image_size]);
+    c = randi([1/2*options.image_size 3/4*options.image_size]);
+    filename = ['./synthetic_images/synthetic' num2str(sprintf('%04d',i)) '_1.tif'];
+    if ~exist( filename )
+        disp(['Making image ' filename]);
+        img = generate_ellipsoid(a,b,c,options);
+        img2tif( img, filename, 'lzw' );
+    end
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+```
+
+The collection of images will look something like the next figure
+
+![Simple geometries dataset snapshot](cellorganizer/simple_geometries_dataset.png "Simple geometries dataset snapshot")
+
+For convenience we will provide you with the image collection.
 
 ### Training a model with simple geometries
 
