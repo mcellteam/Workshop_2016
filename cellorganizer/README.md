@@ -65,7 +65,7 @@ end
 
 The resulting image collection will look something like this (this should be edited to remove some whitespace. Also, the subimages should be larger; it's hard to see the differences between each subimage.)
 
-![Simple geometries dataset snapshot](cellorganizer/simple_geometries_dataset.png "Simple geometries dataset snapshot")
+![Simple geometries dataset snapshot](simple_geometries_dataset.png "Simple geometries dataset snapshot")
 
 For convenience we will provide you with the image collection.
 
@@ -235,4 +235,4 @@ cell.obj	nucleus.mtl	nucleus.tif
 
 The synthetic image will look like:
 
-![Synthetic image projection](cellorganizer/synthetic_image.png "Synthetic image projection")
+![Synthetic image projection](synthetic_image.png "Synthetic image projection")
