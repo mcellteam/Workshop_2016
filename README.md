@@ -81,7 +81,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ```
 
-The collection of images will look something like the next figure
+The collection of images will look something like this
 
 ![Simple geometries dataset snapshot](cellorganizer/simple_geometries_dataset.png "Simple geometries dataset snapshot")
 
@@ -96,6 +96,8 @@ For convenience we will provide you with the image collection.
 * images for the cell shape channel
 * images for the protein channel (optional)
 * options used to change default model settings.
+
+We can use the latter method to train a nuclear and cell membrane model from those geometries. The next block shows how to train the model
 
 ```
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,8 +138,102 @@ img2slml( '3D', dna, cell, [], options );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ```
 
+At the end you will end up with a file
+
+```
+>> ls model.mat
+model.mat
+```
+
+that contains a nuclear and cell membrane models
+```
+>> load model
+>> model.nuclearShapeModel
+
+ans =
+
+          name: 'ellipsoids'
+       surface: [1x1 struct]
+        height: [1x1 struct]
+          type: 'cylindrical_surface'
+    resolution: [0.0490 0.0490 0.2000]
+            id: ''
+
+>> model.cellShapeModel
+
+ans =
+
+            name: 'ellipsoids'
+       meanShape: [1x1 struct]
+       modeShape: [1x1 struct]
+          eigens: [1x1 struct]
+    cellnucratio: [1x1 struct]
+       nucbottom: [1x1 struct]
+            type: 'ratio'
+      resolution: [0.0490 0.0490 0.2000]
+              id: ''
+```
+
+Now we can use this model to generate examples.
+
 ### Image synthesis using a model trained on simple geometries
 
 `slml2img` is the main function for image synthesis. This function takes two inputs
 * a cell array of paths to the models from which we want to synthesize
 * options used to change default synthesis settings.
+
+We can use the latter method to sample from the distributions and a synthesize nuclear and cell membrane instance. The next block shows how to synthesize the image
+
+```
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SYNTHESIZE IMAGE FROM MODEL
+model_file_path = './model.mat';
+
+clear options
+options.targetDirectory = pwd;
+
+%output folder name
+options.prefix = 'examples';
+
+%number of images to synthesize
+options.numberOfSynthesizedImages = 1;
+
+%save images as TIF files
+options.output.tifimages = true;
+
+%compression for TIF output
+options.compression = 'lzw';
+
+%do not apply point-spread-function
+options.microscope = 'none';
+
+%render Gaussian objects as discs
+options.sampling.method = 'disc';
+
+%overlap frequency model and generate a single object
+options.numberOfGaussianObjects = 1;
+
+%generate framework
+options.synthesis = 'framework';
+
+%generate Wavefront obj. files
+options.output.blenderfile = true;
+options.output.blender.downsample = [1 1 1];
+
+%helper options
+options.verbose = true;
+
+%CellOrganizer call
+slml2img( {model_file_path}, options );
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+```
+
+The most important step in the previous block is setting these two parameters
+
+```
+%generate Wavefront obj. files
+options.output.blenderfile = true;
+options.output.blender.downsample = [1 1 1];
+```
+
+which tells CellOrganizer to save the synthetic image as indexed polygon meshes that can be imported into Blender for use with CellBlender.
