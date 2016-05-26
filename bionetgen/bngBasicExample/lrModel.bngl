@@ -29,7 +29,7 @@ begin molecule types
 end molecule types
 
 begin seed species
-  L(r)@EC            L0
+  L(r,d)@EC            L0
   R(l,Y~0)@PM          R0
 end seed species
 
