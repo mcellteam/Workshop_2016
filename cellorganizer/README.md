@@ -22,6 +22,26 @@ We will explain how the code works in a step by step fashion. However, if you
 simply want to generate the obj file, then open **cellorganizer_script.m** in
 Matlab and run it.
 
+![Run Matlab script](./run_script.png)
+
+If everything works correctly, you should see some output in the **Command
+Window**::
+
+```
+...
+Generating cell framework
+Generating nuclear shape
+Generating cell shape
+Filling cell and nuclear images
+Saving nuclear channel tif image
+Saving nuclear channel object file
+Saving cell channel tif image
+Saving cell channel .obj file
+Removing temporary files
+Closing log file.
+Finished synthesis
+```
+
 ### Generating simple geometries
 First we use a CellOrganizer helper function to generate a collection of toy images.
 These simply geometries can then be used to train a generative model.
