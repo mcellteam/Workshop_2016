@@ -1,6 +1,10 @@
 # CellOrganizer
 ## Repository for CellOrganizer models, descriptions, and code to be used for the 2016 Workshop.
 
+## Requirements
+  You need to have a relatively recent version of Matlab and the development
+  version of CellOrganizer in order for this example to work.
+
 ## CellOrganizer
 
 The CellOrganizer project provides tools for
@@ -13,6 +17,10 @@ In this section of the tutorial we are going to use CellOrganizer to
 
 * train a framework (cell and nuclear membrane) model from simple 3D shapes
 * synthesize an instance from the trained model and export as a Wavefront .obj file
+
+We will explain how the code works in a step by step fashion. However, if you
+simply want to generate the obj file, then open **cellorganizer_script.m** in
+Matlab and run it.
 
 ### Generating simple geometries
 First we use a CellOrganizer helper function to generate a collection of toy images.
