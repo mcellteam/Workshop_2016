@@ -19,7 +19,7 @@ First we use a CellOrganizer helper function to generate a collection of toy ima
 These simply geometries can then be used to train a generative model.
 
 The first step is to seed the random number generator to obtain reproducibly-random instances.
-```
+```matlab
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SEED EXAMPLE
 seed = 3;
@@ -30,7 +30,7 @@ RandStream.setDefaultStream( state );
 
 The helper method `generate_ellipsoid` returns a 3D array with centered ellipsoid.
 
-```
+```matlab
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GENERATE SIMPLE GEOMETRIES
 if ~exist( './synthetic_images' )
@@ -82,7 +82,7 @@ Now, we use `img2slml`, the main model training function. `img2slml` takes five 
 We can use the latter method to train a nuclear and cell membrane model from those geometries. The next block shows how to train the model
 (what is the latter method? what kind of model are we training?)
 
-```
+```matlab
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TRAIN MODEL WITH SIMPLE GEOMETRIES
 clear options
@@ -168,7 +168,7 @@ The trained model can then be used to generate synthetic instances.
 We can use the latter method to sample from the distributions and a synthesize nuclear and cell membrane instance. Next, we synthesize an image:
 (not sure what the latter method is. what are 'the distributions'?)
 
-```
+```matlab
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SYNTHESIZE IMAGE FROM MODEL
 model_file_path = './model.mat';
@@ -214,7 +214,7 @@ slml2img( {model_file_path}, options );
 
 Note the flags for generating .obj files:
 
-```
+```matlab
 %generate Wavefront obj. files
 options.output.blenderfile = true;
 options.output.blender.downsample = [1 1 1];
