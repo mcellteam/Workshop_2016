@@ -1,24 +1,24 @@
 begin parameters
     Nav  6.022e8  #6.022e23*1e-15 
-    kp_LR 4e8/Nav   #um^3/s
+    kp_LR 4e8/Nav   #1/M 1/s -> um^3/s
     km_LR 10   #1/s
     k_LRtrans 1000
-    kp_LT1 4e8/ Nav
+    kp_LT1 4e8/ Nav #1/M 1/s -> um^3/s
     km_LT1 10
     k_LT1trans 1000
-    kp_L2T2 4e8/ Nav
+    kp_L2T2 4e8/ Nav #1/M 1/s -> um^3/s
     km_L2T2 10
     k_L2T2trans 1000
-    vol_cell 0.457   #volume of a cell in cubic microns
-    rxn_layer_t 0.01 #width of a cell
-    vol_O1M 0.12 * rxn_layer_t #surface area of a cell * width
-    vol_organelle1 0.003  #volume of an organelle
+    vol_cell 0.457   #volume of a cell (um^3)
+    rxn_layer_t 0.01 #width of a cell (um)
+    vol_O1M 0.12 * rxn_layer_t #surface area of a cell (um^2) * width (um)
+    vol_organelle1 0.003  # volume of an organelle (um^3)
     vol_O2M 0.37 * rxn_layer_t
     vol_organelle2 0.02
 end parameters
 
-
 begin compartments
+  # name dim size parent
   cell  3  vol_cell  #size in cubic microns
   O1M  2  vol_O1M   cell
   organelle1  3  vol_organelle1   O1M
