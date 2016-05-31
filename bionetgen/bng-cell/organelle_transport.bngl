@@ -55,7 +55,7 @@ begin functions
 end functions
 
 begin reaction rules
-@cell:L + R <-> LR kp_LR, km_LR
+# HINT: This reaction is missing
 LR -> @organelle1:L + R k_LRtrans
 @organelle1:L + T1 <-> LT1 kp_LT1, km_LT1
 LT1 -> T1 + @cell:L2 k_LT1trans
