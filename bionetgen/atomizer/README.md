@@ -7,7 +7,7 @@
 - Open RuleBender and create an empty file inside your existing project
 -  Put this instruction on that file:
 
-'''readFile({file=>"/home/cell/Downloads/BIOMD0000000569.xml",atomize=>1})'''
+```readFile({file=>"/home/cell/Downloads/BIOMD0000000569.xml",atomize=>1})```
 
 - Execute the file
 - Navigate to the results folder
