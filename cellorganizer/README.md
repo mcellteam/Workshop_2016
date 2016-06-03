@@ -273,7 +273,7 @@ The synthetic image will look like:
 
 Galaxy is an open, web-based platform intended for data intensive biomedical research. This instance of Galaxy will seamlessly allow the user to create and implement workflows on CellOrganizer to create and analyze parametric and non-parametric models as well as their respective samples.
 
-## Uploading models to Galaxy
+### Uploading models to Galaxy
 
 Please go to [CellOrganizer.org](https://wwww.cellorganizer.org) and download the latest distribution.
 
