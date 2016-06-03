@@ -3,7 +3,11 @@
 
 ## Requirements
   You need to have a relatively recent version of Matlab and the development
-  version of CellOrganizer in order for this example to work.
+  version of CellOrganizer in order for this example to work or release v2.5.0.
+
+## Feedback
+
+If you have any feedback feel free to contact us at `cellorganizer@compbio.cmu.edu` if you have any questions or you would like to report a bug.
 
 ## CellOrganizer
 
@@ -264,3 +268,32 @@ cell.obj	nucleus.mtl	nucleus.tif
 The synthetic image will look like:
 
 ![Synthetic image projection](synthetic_image.png "Synthetic image projection")
+
+## CellOrganizer on Galaxy+Bridges
+
+Galaxy is an open, web-based platform intended for data intensive biomedical research. This instance of Galaxy will seamlessly allow the user to create and implement workflows on CellOrganizer to create and analyze parametric and non-parametric models as well as their respective samples.
+
+### Uploading models to Galaxy
+
+Please go to [CellOrganizer.org](https://wwww.cellorganizer.org) and download the latest distribution.
+
+We will upload one of the models into our workspace.
+
+### Uploading images to Galaxy
+
+We will use the following links to upload some real data into CellOrganizer
+
+```
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell10_ch0_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell10_ch1_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell10_ch2_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell10_mask_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell11_ch0_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell11_ch1_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell11_ch2_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell11_mask_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell12_ch0_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell12_ch1_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell12_ch2_t1.tif
+http://www.cellorganizer.org/HeLa/3D/processed/LAM_cell12_mask_t1.tif
+```
